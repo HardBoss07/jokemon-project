@@ -1,6 +1,7 @@
 package ch.bbw.cge.pokemon.move;
 
 import ch.bbw.cge.pokemon.Pokemon;
+import ch.bbw.cge.pokemon.damage.Damage;
 
 public class WaterGun implements WaterMove {
     private final String name = "Water Gun";
@@ -9,5 +10,10 @@ public class WaterGun implements WaterMove {
     @Override
     public void executeOn(Pokemon pokemon) {
         System.out.println("Attacking with " + name);
+    }
+
+    @Override
+    public Damage getDamage() {
+        return null;
     }
 }

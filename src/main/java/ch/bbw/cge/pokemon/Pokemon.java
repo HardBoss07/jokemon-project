@@ -1,18 +1,13 @@
 package ch.bbw.cge.pokemon;
 
 import ch.bbw.cge.pokemon.damage.Damage;
-import ch.bbw.cge.pokemon.move.MoveEffect;
+import ch.bbw.cge.pokemon.move.Move;
+import ch.bbw.cge.pokemon.effect.MoveEffect;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pokemon {
-
-//    encounter trainer
-//    encounter pokémon
-//    catchPokémon
-//    amountOfPokémon of the trainer
-//    evolve
     private String name;
     private int level;
     private int baseHp;
@@ -27,13 +22,19 @@ public abstract class Pokemon {
     protected int specialDefense;
     private int baseSpeed;
     protected int speed;
+    private Status status;
+    private final Move.Type type;
+
+    enum Status {
+        ALIVE, KO
+    }
 
     List<MoveEffect> positiveEffects = new ArrayList<>();
     List<MoveEffect> negativeEffects = new ArrayList<>();
 
     public Pokemon(String name, int level, int baseHp,
                    int baseAttack, int baseDefense, int baseSpeed,
-                   int baseSpecialAttack, int baseSpecialDefense) {
+                   int baseSpecialAttack, int baseSpecialDefense, Move.Type type) {
         this.name = name;
         this.level = level;
         this.baseHp = baseHp;
@@ -42,6 +43,14 @@ public abstract class Pokemon {
         this.baseSpeed = baseSpeed;
         this.baseSpecialAttack = baseSpecialAttack;
         this.baseSpecialDefense = baseSpecialDefense;
+        this.type = type;
+    }
+
+    public void attack (Pokemon pokemon, Move move) {
+        pokemon.takeDamage(move.getDamage());
+    }
+    public Move.Type getType() {
+        return type;
     }
 
     public String getName() {
@@ -52,12 +61,41 @@ public abstract class Pokemon {
         return level;
     }
 
-    public abstract void attack(String move);
+    public void takeDamage(Damage damage) {
+        int modifiedDamage = calculateDamage(damage);
+        this.hp = calculateCurrentHp(modifiedDamage);
+        updateStatus();
+    }
 
-    public abstract void takeDamage(Damage damage);
+    protected void updateStatus() {
+        if (this.hp < 0) {
+            this.status = Status.KO;
+        }
+    }
+
+    protected int calculateCurrentHp(int modifiedDamage) {
+        return this.hp - modifiedDamage;
+    }
+
+    protected int calculateDamage(Damage damage) {
+        var strongType = damage.getStrongAgainst().stream().filter(type -> type == this.getType()).findAny();
+        var weakType = damage.getWeakAgainst().stream().filter(type -> type == this.getType()).findAny();
+        int doubleDamage = 2;
+        double halfDamage = 0.5;
+        if(strongType.isPresent()) {
+            System.out.println("Doppelter Schaden erhalten: " + damage.getPower() * doubleDamage);
+            return damage.getPower() * doubleDamage;
+        } else if (weakType.isPresent()) {
+            System.out.println("Halber Schaden erhalten: " + (int) Math.round(damage.getPower() * halfDamage));
+            return (int) Math.round(damage.getPower() * halfDamage);
+        } else {
+            System.out.println("Schaden erhalten: " + damage.getPower());
+            return damage.getPower();
+        }
+    }
 
     public void appendMoveEffect(MoveEffect effect, MoveEffect.Type type) {
-        if(type == MoveEffect.Type.NEGATIVE) {
+        if (type == MoveEffect.Type.NEGATIVE) {
             negativeEffects.add(effect);
         }
         positiveEffects.add(effect);

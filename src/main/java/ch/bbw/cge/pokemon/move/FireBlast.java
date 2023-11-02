@@ -3,6 +3,9 @@ package ch.bbw.cge.pokemon.move;
 import ch.bbw.cge.pokemon.Pokemon;
 import ch.bbw.cge.pokemon.damage.Damage;
 import ch.bbw.cge.pokemon.damage.FireDamage;
+import ch.bbw.cge.pokemon.effect.BurnEffect;
+import ch.bbw.cge.pokemon.effect.EffectBehaviour;
+import ch.bbw.cge.pokemon.effect.MoveEffect;
 
 public class FireBlast implements FireMove, EffectBehaviour {
     private final String name = "Fire Blast";
@@ -10,6 +13,7 @@ public class FireBlast implements FireMove, EffectBehaviour {
     private final int power = 110;
     private final int powerPoints = 5;
     private final int accuracy = 80;
+    Damage damage = new FireDamage(power);
 
     MoveEffect burn = new BurnEffect(power);
 
@@ -25,5 +29,7 @@ public class FireBlast implements FireMove, EffectBehaviour {
 
     }
 
-
+    public Damage getDamage() {
+        return damage;
+    }
 }

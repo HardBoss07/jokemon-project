@@ -1,6 +1,7 @@
 package ch.bbw.cge.pokemon.move;
 
 import ch.bbw.cge.pokemon.Pokemon;
+import ch.bbw.cge.pokemon.damage.Damage;
 
 public interface Move {
 
@@ -14,4 +15,6 @@ public interface Move {
         Physical, Special, Status
     }
     abstract void executeOn(Pokemon pokemon);
+
+    abstract Damage getDamage();
 }

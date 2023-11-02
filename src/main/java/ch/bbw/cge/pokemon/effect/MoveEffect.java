@@ -1,4 +1,4 @@
-package ch.bbw.cge.pokemon.move;
+package ch.bbw.cge.pokemon.effect;
 
 import ch.bbw.cge.pokemon.Pokemon;
 

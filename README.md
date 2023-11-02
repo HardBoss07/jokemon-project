@@ -1,4 +1,4 @@
-# pokemon-project
+# ch.bbw.cge.pokemon-project
 
 
 
@@ -15,7 +15,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/bbw-modul-320/pokemon-project.git
+git remote add origin https://gitlab.com/bbw-modul-320/ch.bbw.cge.pokemon-project.git
 git branch -M main
 git push -uf origin main
 ```

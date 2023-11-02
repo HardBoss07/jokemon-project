@@ -1,6 +1,7 @@
 package ch.bbw.cge.pokemon;
 
 import ch.bbw.cge.pokemon.damage.Damage;
+import ch.bbw.cge.pokemon.move.Move;
 
 public class FirePokemon extends Pokemon {
     public FirePokemon(String name, int level,
@@ -8,16 +9,7 @@ public class FirePokemon extends Pokemon {
                        int baseDefense, int baseSpeed,
                        int baseSpecialAttack, int baseSpecialDefense) {
         super(name, level, baseHp, baseAttack, baseDefense,
-                baseSpeed, baseSpecialAttack, baseSpecialDefense);
+                baseSpeed, baseSpecialAttack, baseSpecialDefense, Move.Type.FIRE);
     }
 
-    @Override
-    public void attack(String move) {
-        System.out.println(getName() + " uses Ember!");
-    }
-
-    @Override
-    public void takeDamage(Damage damage) {
-        System.out.println(getName() + " takes " + damage + " damage from water attack.");
-    }
 }
