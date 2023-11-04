@@ -1,11 +1,11 @@
-package ch.bbw.cge.pokemon.move;
+package ch.bbw.cge.jokemon.move;
 
-import ch.bbw.cge.pokemon.Pokemon;
-import ch.bbw.cge.pokemon.damage.Damage;
-import ch.bbw.cge.pokemon.damage.FireDamage;
-import ch.bbw.cge.pokemon.effect.BurnEffect;
-import ch.bbw.cge.pokemon.effect.EffectBehaviour;
-import ch.bbw.cge.pokemon.effect.MoveEffect;
+import ch.bbw.cge.jokemon.Jokemon;
+import ch.bbw.cge.jokemon.damage.Damage;
+import ch.bbw.cge.jokemon.damage.FireDamage;
+import ch.bbw.cge.jokemon.effect.BurnEffect;
+import ch.bbw.cge.jokemon.effect.EffectBehaviour;
+import ch.bbw.cge.jokemon.effect.MoveEffect;
 
 public class FireBlast implements FireMove, EffectBehaviour {
     private final String name = "Fire Blast";
@@ -18,14 +18,14 @@ public class FireBlast implements FireMove, EffectBehaviour {
     MoveEffect burn = new BurnEffect(power);
 
     @Override
-    public void executeOn(Pokemon pokemon) {
+    public void executeOn(Jokemon jokemon) {
         System.out.println("Attacking with " + name);
-        pokemon.takeDamage(new FireDamage(power));
-        pokemon.appendMoveEffect(burn, MoveEffect.Type.NEGATIVE);
+        jokemon.takeDamage(new FireDamage(power));
+        jokemon.appendMoveEffect(burn, MoveEffect.Type.NEGATIVE);
     }
 
     @Override
-    public void inflictsEffectOn(Pokemon pokemon) {
+    public void inflictsEffectOn(Jokemon jokemon) {
 
     }
 

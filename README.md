@@ -1,4 +1,4 @@
-# ch.bbw.cge.pokemon-project
+# ch.bbw.cge.jokemon-project
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/bbw-modul-320/ch.bbw.cge.pokemon-project.git
+git remote add origin https://gitlab.com/bbw-modul-320/ch.bbw.cge.jokemon-project.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/bbw-modul-320/pokemon-project/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/bbw-modul-320/jokemon-project/-/settings/integrations)
 
 ## Collaborate with your team
 

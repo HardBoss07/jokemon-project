@@ -1,6 +1,4 @@
-package ch.bbw.cge.pokemon.move;
-
-import ch.bbw.cge.pokemon.Pokemon;
+package ch.bbw.cge.jokemon.move;
 
 import java.util.ArrayList;
 import java.util.List;

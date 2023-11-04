@@ -1,13 +1,13 @@
-package ch.bbw.cge.pokemon;
+package ch.bbw.cge.jokemon;
 
-import ch.bbw.cge.pokemon.damage.Damage;
-import ch.bbw.cge.pokemon.move.Move;
-import ch.bbw.cge.pokemon.effect.MoveEffect;
+import ch.bbw.cge.jokemon.damage.Damage;
+import ch.bbw.cge.jokemon.move.Move;
+import ch.bbw.cge.jokemon.effect.MoveEffect;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Pokemon {
+public abstract class Jokemon {
     private String name;
     private int level;
     private int baseHp;
@@ -32,7 +32,7 @@ public abstract class Pokemon {
     List<MoveEffect> positiveEffects = new ArrayList<>();
     List<MoveEffect> negativeEffects = new ArrayList<>();
 
-    public Pokemon(String name, int level, int baseHp,
+    public Jokemon(String name, int level, int baseHp,
                    int baseAttack, int baseDefense, int baseSpeed,
                    int baseSpecialAttack, int baseSpecialDefense, Move.Type type) {
         this.name = name;
@@ -46,8 +46,8 @@ public abstract class Pokemon {
         this.type = type;
     }
 
-    public void attack (Pokemon pokemon, Move move) {
-        pokemon.takeDamage(move.getDamage());
+    public void attack (Jokemon jokemon, Move move) {
+        jokemon.takeDamage(move.getDamage());
     }
     public Move.Type getType() {
         return type;

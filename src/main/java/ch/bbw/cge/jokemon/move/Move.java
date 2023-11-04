@@ -1,7 +1,7 @@
-package ch.bbw.cge.pokemon.move;
+package ch.bbw.cge.jokemon.move;
 
-import ch.bbw.cge.pokemon.Pokemon;
-import ch.bbw.cge.pokemon.damage.Damage;
+import ch.bbw.cge.jokemon.Jokemon;
+import ch.bbw.cge.jokemon.damage.Damage;
 
 public interface Move {
 
@@ -14,7 +14,7 @@ public interface Move {
     public enum Category {
         Physical, Special, Status
     }
-    abstract void executeOn(Pokemon pokemon);
+    abstract void executeOn(Jokemon jokemon);
 
     abstract Damage getDamage();
 }

@@ -1,8 +1,7 @@
-package ch.bbw.cge.pokemon.damage;
+package ch.bbw.cge.jokemon.damage;
 
-import ch.bbw.cge.pokemon.move.Move;
+import ch.bbw.cge.jokemon.move.Move;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Damage {

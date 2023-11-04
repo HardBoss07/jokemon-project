@@ -1,14 +1,14 @@
-package ch.bbw.cge.pokemon.move;
+package ch.bbw.cge.jokemon.move;
 
-import ch.bbw.cge.pokemon.Pokemon;
-import ch.bbw.cge.pokemon.damage.Damage;
+import ch.bbw.cge.jokemon.Jokemon;
+import ch.bbw.cge.jokemon.damage.Damage;
 
 public class WaterGun implements WaterMove {
     private final String name = "Water Gun";
     private final Category category = Category.Special;
     private final int power = 40;
     @Override
-    public void executeOn(Pokemon pokemon) {
+    public void executeOn(Jokemon jokemon) {
         System.out.println("Attacking with " + name);
     }
 
