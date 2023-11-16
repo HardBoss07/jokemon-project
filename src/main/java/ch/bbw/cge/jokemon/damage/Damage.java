@@ -24,15 +24,7 @@ public abstract class Damage {
         return strongAgainst;
     }
 
-    public void setStrongAgainst(List<Move.Type> strongAgainst) {
-        this.strongAgainst = strongAgainst;
-    }
-
     public List<Move.Type> getWeakAgainst() {
         return weakAgainst;
-    }
-
-    public void setWeakAgainst(List<Move.Type> weakAgainst) {
-        this.weakAgainst = weakAgainst;
     }
 }

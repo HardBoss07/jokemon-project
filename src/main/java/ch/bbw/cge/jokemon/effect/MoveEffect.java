@@ -8,4 +8,10 @@ public interface MoveEffect {
     public enum Type {
         POSITIVE, NEGATIVE
     }
+    int getEffectPower();
+    int getEffectMinTurnDuration();
+    int getEffectMaxTurnDuration();
+    int getEffectChancePercentage();
+
+
 }

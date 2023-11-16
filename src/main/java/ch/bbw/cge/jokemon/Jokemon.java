@@ -47,7 +47,8 @@ public abstract class Jokemon {
     }
 
     public void attack (Jokemon jokemon, Move move) {
-        jokemon.takeDamage(move.getDamage());
+        move.executeOn(jokemon);
+        //jokemon.takeDamage(move.getDamage()); TODO maybe delete
     }
     public Move.Type getType() {
         return type;
@@ -69,6 +70,7 @@ public abstract class Jokemon {
 
     protected void updateStatus() {
         if (this.hp < 0) {
+            // TODO implement the method emptyEffectList (positive and negative list).
             this.status = Status.KO;
         }
     }
@@ -95,9 +97,21 @@ public abstract class Jokemon {
     }
 
     public void appendMoveEffect(MoveEffect effect, MoveEffect.Type type) {
-        if (type == MoveEffect.Type.NEGATIVE) {
-            negativeEffects.add(effect);
+        if (isEffectAppended(effect)) {
+            if (type == MoveEffect.Type.NEGATIVE) { // TODO check if the same effect is already in the list. If yes, replace it.
+                negativeEffects.add(effect);
+            }
+            positiveEffects.add(effect);
         }
-        positiveEffects.add(effect);
+    }
+    public boolean isEffectAppended(MoveEffect effect) {
+        if((int) Math.round(Math.random()*100) > effect.getEffectChancePercentage()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isEffectStillActive(){ //TODO build this method for the status check at the beginning of a turn. Use it in Battle class
+        return false;
     }
 }
