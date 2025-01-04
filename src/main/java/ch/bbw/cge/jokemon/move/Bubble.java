@@ -4,8 +4,8 @@ import ch.bbw.cge.jokemon.Jokemon;
 import ch.bbw.cge.jokemon.damage.Damage;
 import ch.bbw.cge.jokemon.damage.WaterDamage;
 
-public class WaterGun implements Move {
-    private final String name = "Water Gun";
+public class Bubble implements Move {
+    private final String name = "Bubble";
     private final Category category = Category.Special;
     private final int power = 40;
     private Damage damage = new WaterDamage(power);

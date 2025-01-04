@@ -4,10 +4,10 @@ import ch.bbw.cge.jokemon.Jokemon;
 import ch.bbw.cge.jokemon.damage.Damage;
 import ch.bbw.cge.jokemon.damage.WaterDamage;
 
-public class WaterGun implements Move {
-    private final String name = "Water Gun";
-    private final Category category = Category.Special;
-    private final int power = 40;
+public class Crabhammer implements Move {
+    private final String name = "Crabhammer";
+    private final Category category = Category.Physical;
+    private final int power = 100;
     private Damage damage = new WaterDamage(power);
     @Override
     public void executeOn(Jokemon jokemon) {
